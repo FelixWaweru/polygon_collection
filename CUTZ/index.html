@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Pr0tag0nists">
+  <meta name="description"
+    content="Pr0tag0nists is a collection of 10,000 unique, randomly generated anime pr0tag0nists adventuring on the Ethereum blockchain as ERC-721 NFTs.">
+  <meta name="keywords" content="NFT, Crypto, Collection, Anime">
+  <meta name="robots" content="index, nofollow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="1 days">
+
+  <meta name="twitter:card" content="summary">
+  <meta property="twitter:image" content="assets/images/banner4.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url" content="https://www.pr0tag0nists.com/" />
+  <meta property="og:image" content="assets/images/banner4.png" />
+
+  <title>Pr0tag0nists</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+  <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+  <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+  <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+
+  <style>
+    .link-button {
+      background-color: #ffffff;
+      color: #121212;
+      height: 70px;
+      padding: 10px;
+      margin: 2px;
+    }
+
+    .link-button:hover {
+      background: #f57268;
+      color: #ffffff;
+    }
+
+    .banner_video video {
+      position: fixed;
+      object-fit: cover;
+    }
+
+    .navbar-brand img {
+      width: 12%;
+    }
+
+    .sale-link-button {
+      background-color: #000000;
+      color: #ffffff;
+      height: 80px;
+      font-size: 25px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .sale-link-button:hover {
+      background: #ffffff;
+      color: #ed7b49;
+    }
+
+    .connect-link-button {
+      background-color: #000000;
+      color: #ffffff;
+      height: 50px;
+      width: 100px;
+      font-size: 12px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .connect-link-button:hover {
+      background: #ffffff;
+      color: #ed7b49;
+    }
+
+    .mint-amount-link-button {
+      background-color: #000000;
+      color: #ffffff;
+      height: 40px;
+      width: 40px;
+    }
+
+    .mint-amount-link-button:hover {
+      background: #ffffff;
+      color: #ed7b49;
+    }
+
+    .responsive_mint2 {
+      visibility: hidden;
+      display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      .sale-link-button {
+        width: 60%;
+        font-size: 10px;
+      }
+
+      .connect-link-button {
+        width: 60%;
+        font-size: 10px;
+      }
+
+      .banner_video video {
+        min-height: 900px;
+        height: 100%;
+      }
+
+      .navbar-brand img {
+        width: 20%;
+      }
+
+      .responsive_mint {
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+      }
+
+      .responsive_mint2 {
+        visibility: visible;
+        display: block !important;
+      }
+    }
+
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:portrait) {
+      .banner_video video {
+        min-height: 1366px;
+        height: 100%;
+      }
+    }
+
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    mark {
+      background-color: #f57268;
+      color: black;
+    }
+
+    .disableLink {
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .red_tint {
+      color: #f57268;
+    }
+
+    .black_tint {
+      color: #000000;
+    }
+
+    .white_tint {
+      color: #ffffff;
+    }
+
+    .scroll-bound {
+      width: 100%;
+
+      .content {
+        height: auto !important;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .hoverme {
+      /*      width: 240px;
+      text-align: center;
+      padding: 10px 0;
+      cursor: pointer;
+      position: relative;*/
+
+      div:hover {
+        background-color: yellow;
+
+        @for $i from 1 through 50 {
+          i:nth-of-type(#{$i}) {
+            transform: translate3d(random(190) - 100 + px,
+                random(200) - 100 + px,
+                0) rotate(random(360) + deg);
+            background: hsla(random(360), 100%, 50%, 1);
+            animation: bang 700ms ease-out forwards;
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    @keyframes bang {
+      from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <main>
+    <div class="page-loader">
+      <div class="loader">Loading...</div>
+      <div class="content banner_video" style="filter: grayscale(100%) brightness(25%);">
+        <video width="100%" muted preload autoplay loop>
+          <source src="assets/images/main_banner.webm" type="video/webm">
+        </video>
+      </div>
+    </div>
+    <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="margin-bottom: 10px;" href="/"><img src="assets/images/banner.png"
+              alt="Banner Image"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="custom-collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+
+            <li><a class="section-scroll" href="#home">Mint</a></li>
+            <li><a class="section-scroll" href="#intro">Intro</a></li>
+            <li><a class="section-scroll" href="#specs">Specs</a></li>
+            <li><a class="section-scroll" href="#team">Team</a></li>
+            <button id="connectButton" type="button" class="btn btn-secondary connect-link-button" onclick="connect()"
+              style="margin: 0px;">CONNECT</button>
+              
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="home-section home-full-height bg-dark bg-gradient parallax-bg" id="home"
+      style="position: relative;">
+
+        <div class="titan-caption responsive_mint" style="position: absolute;">
+          <div class="caption-content col-sm-8" style="background-color: #ed7b49; height: 100%;">
+
+
+            <div class="col-sm-6 col-sm-offset-3">
+              <div class="alt-services-image align-center" style="padding-top: 0px;">
+
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3" style="position: absolute; top: 30%; left: 0; right: 0;">
+              <h2 class="module-title font-alt black_tint" style="font-size: 85px; margin-bottom: 0px !important;">CUTZ</h2>
+              <h2 class="module-title font-alt black_tint" style="font-size: 20px; margin-bottom: 20px !important;">Get your fresh cut here. Mint Cutz</h2>
+              <div class="btn-group" style="width: 100%;">
+
+                  <input type="button" value="-" class="minus mint-amount-link-button">
+                  <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="black_tint" style="height: 40px;">
+                  <input type="button" value="+" class="plus mint-amount-link-button">
+                <!-- <select id="numberOfTokensSelect" class="form-select" aria-label="Select Pr0ts"
+                  style="font-size: 15px; color: #121212; width: 100%; height: 40px;">
+                  <option selected value="1">1 PR0TAG0NIST : 0.066 ETH</option>
+                  <option value="2">2 PR0TAG0NIST : 0.132 ETH</option>
+                  <option value="3">3 PR0TAG0NIST : 0.198 ETH</option>
+                  <option value="4">4 PR0TAG0NIST : 0.264 ETH</option>
+                  <option value="5">5 PR0TAG0NIST : 0.33 ETH</option>
+                  <option value="6">6 PR0TAG0NIST : 0.396 ETH</option>
+                  <option value="7">7 PR0TAG0NIST : 0.462 ETH</option>
+                  <option value="8">8 PR0TAG0NIST : 0.528 ETH</option>
+                  <option value="9">9 PR0TAG0NIST : 0.594 ETH</option>
+                  <option value="10">10 PR0TAG0NIST : 0.66 ETH</option>
+                </select> -->
+              </div>
+
+              <div style="padding-top: 20px;">
+                <button id="mintButton" type="button" class="btn btn-secondary sale-link-button" onclick="minter()"
+                  style="width: 100%; margin: 0px;">MINT NOW</button>
+
+                <h2 id="mintResponse" class="module-title font-alt black_tint"
+                  style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
+
+              </div>
+              <!-- <div style="padding-top: 20px;">
+                <h2 class="module-title font-alt black_tint" style="margin-bottom: 5px; color: #000000; font-size: 15px;">Minted Pr0ts:</h2>
+                <h2 id = "totalSupplyValue" class="module-title font-alt black_tint" style="margin-bottom: 5px; font-size: 15px;"> / 10000</h2>
+              </div> -->
+            </div>
+
+          </div>
+          <div class="col-sm-4" style="background-color: #ffffff; height: 100%; padding: 0px;">
+            <img src="assets/images/Hunimation.gif" style="height: 100%; object-fit: cover; overflow: hidden;"
+              alt="Feature Image" />
+          </div>
+        </div>
+
+        <div class="titan-caption responsive_mint2" style="background-color: #ed7b49; position: absolute;">
+          <div class="caption-content" style="height: 100%;">
+
+
+            <div class="col-sm-6 col-sm-offset-3">
+              <div class="alt-services-image align-center" style="padding-top: 0px;">
+
+              </div>
+            </div>
+            <!-- Mobile Display -->
+            <div class="col-sm-6 col-sm-offset-3" style="position: absolute; top: 10%; left: 0; right: 0;">
+              <h2 class="module-title font-alt black_tint">Pr0tag0nists Main Sale Mint</h2>
+              <div class="btn-group" style="width: 100%;">
+                <h2 id="minterWallet2" class="module-title font-alt black_tint"
+                  style="margin-bottom: 5px; color: #000000; font-size: 15px;">Your Wallet:</h2>
+                <select id="numberOfTokensSelect" class="form-select" aria-label="Select Pr0ts"
+                  style="font-size: 15px; color: #121212; width: 100%; height: 40px;">
+                  <option selected value="1">1 PR0TAG0NIST : 0.066 ETH</option>
+                  <option value="2">2 PR0TAG0NIST : 0.132 ETH</option>
+                  <option value="3">3 PR0TAG0NIST : 0.198 ETH</option>
+                  <option value="4">4 PR0TAG0NIST : 0.264 ETH</option>
+                  <option value="5">5 PR0TAG0NIST : 0.33 ETH</option>
+                  <option value="6">6 PR0TAG0NIST : 0.396 ETH</option>
+                  <option value="7">7 PR0TAG0NIST : 0.462 ETH</option>
+                  <option value="8">8 PR0TAG0NIST : 0.528 ETH</option>
+                  <option value="9">9 PR0TAG0NIST : 0.594 ETH</option>
+                  <option value="10">10 PR0TAG0NIST : 0.66 ETH</option>
+                </select>
+              </div>
+
+              <div style="padding-top: 20px;">
+                <button id="mintButton2" type="button" class="btn btn-secondary sale-link-button" onclick="minter()"
+                  style="width: 100%; margin: 0px;">MINT YOUR PR0T</button>
+
+                <h2 id="mintResponse2" class="module-title font-alt black_tint"
+                  style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
+
+              </div>
+              <!-- <div style="padding-top: 20px;">
+                <h2 class="module-title font-alt black_tint" style="margin-bottom: 5px; color: #000000; font-size: 15px;">Minted Pr0ts:</h2>
+                <h2 id = "totalSupplyValue2" class="module-title font-alt black_tint" style="margin-bottom: 5px; font-size: 15px;"> / 10000</h2>
+              </div> -->
+            </div>
+
+          </div>
+        </div>
+    </section>
+
+    <div class="main" id="intro">
+      <section class="module" style="background-color: #be5a4b;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt" style="font-size: 40px;">Get your fresh <span class="white_tint">CUTZ</span></h2>
+              <div class="module-subtitle" style="margin-bottom: 0px;">Kinyozi poster inspired by the posters in hair salons that we grew up seeing in Nairobi growing up in the 90's.
+                </br></br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="module" id="specs" style="background-color: #ed7b49;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt  black_tint" style="font-size: 40px;">Specs &amp; features</h2>
+              <div class="module-subtitle font-serif"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="alt-features-item">
+                <div class="alt-features-icon"><span class="icon-puzzle"></span></div>
+                <h3 class="alt-features-title font-alt black_tint">Unique</h3>
+                <p style="font-size: 15px; color: #ffffff;">All pr0tag0nists are uniquely generated from over 200+ possible attributes
+                  and traits</p>
+              </div>
+              <div class="alt-features-item">
+                <div class="alt-features-icon"><span class="icon-linegraph"></span></div>
+                <h3 class="alt-features-title font-alt black_tint">Randomly Generated</h3>
+                <p style="font-size: 15px; color: #ffffff;">All pr0tag0nists are programatically generated at random ensuring that every
+                  piece has a style of its own</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 hidden-xs hidden-sm">
+              <div class="alt-services-image align-center"><img src="assets/images/22.png" alt="Feature Image" /></div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <div class="alt-features-item">
+                <div class="alt-features-icon"><span class="icon-layers"></span></div>
+                <h3 class="alt-features-title font-alt black_tint">Fair Distribution</h3>
+                <p style="font-size: 15px; color: #ffffff;">All pr0tag0nists cost 0.066 ETH at launch as there are no price tiers;
+                  membership costs the same for everyone</p>
+              </div>
+              <div class="alt-features-item">
+                <div class="alt-features-icon"><span class="icon-edit"></span></div>
+                <h3 class="alt-features-title font-alt black_tint">Creative Licence</h3>
+                <p style="font-size: 15px; color: #ffffff;">All pr0tag0nists come with creative and commercial right usage as long as
+                  you own the NFT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="module" id="team" style="background-color: #b8afff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="module-title font-alt" style="font-size: 40px;">Meet Our Team</h2>
+            <div class="module-subtitle">Pr0tag0nists is a project made by a team of real-life friends consisting of NFT
+              enthusiasts, artists, and blockchain devs.</div>
+          </div>
+        </div>
+        <div class="row">
+          <ul class="works-grid works-grid-gut works-grid-3" id="works-grid">
+            <li class="work-item illustration webdesign"><a>
+
+                <div class="work-image team-item wow fadeInUp" onclick="wow fadeInUp">
+                </div>
+
+              </a></li>
+            <li class="work-item illustration webdesign"><a>
+
+                <div class="work-image team-item wow fadeInUp" onclick="wow fadeInUp">
+                  <img src="assets/images/magz.png" alt="Feature Image" />
+                  <div class="team-detail">
+                    <h5 class="font-alt">✏</h5>
+                    <p class="white_tint">Digital artist with interests in NFT and crypto.</p>
+                  </div>
+
+                </div>
+                <div class="team-descr font-alt">
+                  <div class="team-name">Felix Waweru
+                    <a target="_blank" href="https://twitter.com/whyweru"><i class="fa fa-twitter"></i></a>
+                  </div>
+                </div>
+
+              </a></li>
+            <li class="work-item illustration webdesign"><a>
+
+                <div class="work-image team-item wow fadeInUp" onclick="wow fadeInUp">
+                </div>
+
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer bg-dark" style="padding-top: 20px !important; padding-bottom: 20px !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="copyright font-alt">&copy; 2021&nbsp;<a href="/">Pr0tag0nists</a>, All Rights Reserved</p>
+          </div>
+          <div class="col-sm-6" style="text-align: right;">
+
+            <a href="https://twitter.com/pr0tag0nists" target="_blank">
+              <button type="button" class="btn btn-secondary link-button"
+                style="height: 50px !important;">TWITTER</button>
+            </a>
+            <a href="https://discord.gg/Ys8UN6PrRp" target="_blank">
+              <button type="button" class="btn btn-secondary link-button"
+                style="height: 50px !important;">DISCORD</button>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <div class="scroll-up">
+      <a href="#totop" style="background-color: #ed7b49; width: 40px; height: 40px; padding: 10px;">
+        <i class="fa fa-angle-double-up" style="width: 20px; height: 20px;"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/lib/wow/dist/wow.js"></script>
+  <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+  <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+  <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+  <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+
+  <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+  <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="/index.js"></script>
+
+</body>
+
+</html>

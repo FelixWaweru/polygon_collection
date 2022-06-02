@@ -1,0 +1,14 @@
+{
+  "name": "Pr0tag0nists",
+  "short_name": "Pr0t",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#ff7575",
+  "icons": [
+    {
+      "src": "https://github.com/mastrSensei/mastrSensei.github.io/blob/master/pr0tag0nists/assets/images/banner.jpg",
+      "type": "image/jpg"
+    }
+  ]
+}
