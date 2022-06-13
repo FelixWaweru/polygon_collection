@@ -13,6 +13,11 @@ router.get('/', function(req,res){
   res.sendFile(path + 'index.html');
 });
 
+router.get('/COMBZ', function (req, res) {
+  res.sendFile(path + 'combz.html');
+});
+
+
 // Run Server
 app.use(express.static(__dirname));
 app.use('/', router);

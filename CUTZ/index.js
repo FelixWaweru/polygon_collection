@@ -1,6 +1,7 @@
 window.onload = function () {
-	connect();
-	// totalSupply(),
+	connect(),
+	gallery(),
+	totalSupply(),
 	saleState()
 };
 
@@ -657,6 +658,58 @@ var CUTZABI = [
 	}
 ];
 
+function gallery(){
+	var data = [
+		{
+			"id": "0",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "1",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "2",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "3",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "4",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "5",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "6",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+		{
+			"id": "7",
+			"image": "http://127.0.0.1:5500/CUTZ/assets/images/29.png",
+		},
+	]
+
+	var htmlText = data.map(function (o) {
+		return `
+	 <div class="col-sm-6 col-md-3 col-lg-3">
+        <div class="alt-features-item">
+            <div>
+            	<img id = "tokenImage" class="nft-thumbnail" src="${o.image}"/>
+            </div>
+            <h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px;">CUTZ</h3>
+            <h3 id = "tokenNumber" class="alt-features-title font-alt black_tint">No. ${o.id}</h3>
+        </div>
+    </div>
+  `;
+	});
+
+	$('#tokenViewer').append(htmlText);
+}
 
 // Token functions
 async function connect() {
@@ -665,7 +718,7 @@ async function connect() {
 	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 	const account = accounts[0];
 	console.log(accounts[0]);
-	document.getElementById('connectButton').innerHTML = accounts[0].substring(0, 8) + "..";
+	document.getElementById('connectButton').innerHTML = accounts[0].substring(0, 6) + "..";
 	document.getElementById('minterWallet2').innerHTML = "Your Wallet: " + accounts[0].substring(0, 16) + "...";
 }
 // Web3 wallet sign in end
@@ -699,9 +752,9 @@ async function totalSupply(){
 	var CUTZContract = new web3.eth.Contract(CUTZABI, CUTZAddress);
 
 	var totalSupplyCUTZ = await CUTZContract.methods.totalSupply().call().then(function (response) {
-		console.log(response[0]);
-		document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 5000";
-		document.getElementById('totalSupplyValue2').innerHTML = response[0] + " / 5000";
+		console.log(response[0] + " / 5000");
+		// document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 5000";
+		// document.getElementById('totalSupplyValue2').innerHTML = response[0] + " / 5000";
 	});
 }
 
