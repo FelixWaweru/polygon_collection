@@ -352,23 +352,24 @@
                 Get your fresh cut here!
                 </br></br>
                 All <span class="black_tint">CUTZ</span> are <span class="black_tint">free</span> to mint but feel free to set your own price :)</h2>
+              
               <div class="btn-group" style="width: 100%;">
                   
                 <input type="button" value=" " class="plus blank-link-button" disabled>
-                <input type="number" max="" name="mint-price" title="Mint Price" placeholder="Price Per Token" class="black_tint"
+                <input id="priceOfTokensSelect" type="number" max="" name="mint-price" title="Mint Price" placeholder="Price Per Token" class="black_tint"
                   style="height: 40px; width: 40% !important;">
                 <input type="button" value="ETH" class="plus blank-link-button" disabled>
 
                   </br></br>
 
                   <input type="button" value="-" class="minus mint-amount-link-button">
-                  <input type="number" step="1" min="1" max="10" name="quantity" placeholder="Token Quantity" title="Qty" class="black_tint" 
+                  <input id="numberOfTokensSelect" type="number" step="1" min="1" max="10" name="mint-quantity" placeholder="Token Quantity" title="Qty" class="black_tint" 
                   style="height: 40px; width: 40%;">
                   <input type="button" value="+" class="plus mint-amount-link-button">
               </div>
 
               <div style="padding-top: 20px;">
-                <button id="mintButton" type="button" class="btn btn-secondary sale-link-button" onclick="minter()"
+                <button id="mintButton" class="btn btn-secondary sale-link-button" onclick="minter()"
                   style="width: 100%; margin: 0px;">MINT NOW</button>
 
                 <h2 id="mintResponse" class="module-title font-alt black_tint"
@@ -483,8 +484,8 @@
               <div class="alt-features-item">
                 <div class="alt-features-icon"><span class="icon-gift"></span></div>
                 <h3 class="alt-features-title font-alt black_tint">Companion Collection</h3>
-                <p style="font-size: 15px; color: #ffffff;">All CUTZ holders will receive a free COMBZ token that will grant
-                you special access to the community wallet DAO </p>
+                <p style="font-size: 15px; color: #ffffff;">All CUTZ holders will get a COMBZ token that will grant
+                special access to the community wallet & DAO </p>
               </div>
               <div class="alt-features-item">
                 <div class="alt-features-icon"><span class="icon-bargraph"></span></div>
@@ -541,7 +542,7 @@
                 </div>
                 <div class="team-descr font-alt">
                   <div class="team-name"><span style="color: #ed7b49 !important;">Felix Waweru : </span>
-                    <span style="color: #c0c0c0 !important;">Digital artist & tech enthusiast 🎨💻</span>
+                    <span style="color: #c0c0c0 !important;">Software Engineer, Digital artist & tech enthusiast 🎨💻</span>
                     </br></br>
                     <a href="https://twitter.com/whyweru" target="_blank">
                       <button type="button" class="btn btn-secondary social-link-button" style="height: 50px !important;">
@@ -610,7 +611,7 @@
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="/index.js"></script>
+  <script src="index.js"></script>
 
 </body>
 
