@@ -1,7 +1,6 @@
 window.onload = function () {
 	connect(),
 	gallery(galleryStart, gallerySize),
-	galleryApiCall(),
 	totalSupply(),
 	saleState()
 };
@@ -2569,66 +2568,131 @@ var COMBZ_DAOABI = [
 	}
 ];
 
-function galleryApiCall() {
-	var http = require("http");
-
-	var options = {
-		host: 'https://api.covalenthq.com',
-		port: 443,
-		path: '/v1/1/tokens/0xe4605d46fd0b3f8329d936a8b258d69276cba264/nft_metadata/123/?key=ckey_bfcb7ebfab03410fac530470a04',
-		method: 'GET'
-	};
-
-	var req = http.request(options, function (res) {
-		console.log('STATUS: ' + res.statusCode);
-		console.log('HEADERS: ' + JSON.stringify(res.headers));
-		res.setEncoding('utf8');
-		res.on('data', function (chunk) {
-			console.log('BODY: ' + chunk);
-		});
-	});
-
-	req.on('error', function (e) {
-		console.log('problem with request: ' + e.message);
-	});
-
-	// write data to request body
-	console.log(req);
-	
-}
-
 // Gallery Function
-var gallerySize = 12;
+var gallerySize = 18;
 var galleryStart = 0;
+var totalTokensMinted = 60;
 
 function loadMoreGallery() {
+	
+	if (gallerySize + 18 <= totalTokensMinted ){
+		galleryStart = gallerySize;
+		gallerySize += 18;
+	}else
+	{
+		galleryStart = gallerySize;
+		gallerySize += (totalTokensMinted - gallerySize);
+	}
 
-	galleryStart = gallerySize;
-	gallerySize += 12;
-	console.log("Start : " + galleryStart + " End : " + gallerySize);
-	gallery(galleryStart, gallerySize);
-	// $('#addedGalleryItems').remove();
-
+	gallery(galleryStart, gallerySize)
 	
 }
-function gallery(list_start, list_end){
 
+function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair, clothes, facial_hair, ear_jewel, neck_jewel, accessory){
+	const Http = new XMLHttpRequest();
+	const url = 'https://api.covalenthq.com/v1/1/tokens/0xED5AF388653567Af2F388E6224dC7C4b3241C544/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
+	Http.open("GET", url);
+	Http.send();
+	var covalentMetadata;
+	var ownerAddress;
+
+	Http.onreadystatechange = function() {
+		if(this.readyState==4 && this.status==200){// readyState 4 means request is done
+			covalentMetadata = JSON.parse(Http.responseText);
+			ownerAddress = covalentMetadata.data.items[0].nft_data[0].owner_address;
+			document.getElementById('tokenOwner').innerHTML = ownerAddress;
+		}
+	}
+
+	var popupText = `
+				<!-- Modal content -->
+            <div id = "modalContent" class="container modal-content">
+                <span class="close">&times;</span>
+                <div class="col-md-6 alt-features-item" style="margin-top: 20px;">
+                    <div>
+                        <img id="tokenImage" class="nft-thumbnail" width="100%" src="${tokenImage}" />
+                    </div>
+                </div>
+                <div class="col-md-6 alt-features-item" style="margin-top: 0px;">
+                    <div class = "col-md-6" style="padding: 10px;  background:#ed7b49; width: 200px; ">
+                        <h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px;">CUTZ</h3>
+                        <h3 id="tokenNumber" class="alt-features-title font-alt black_tint">No. ${tokenId}</h3>
+                    </div>
+					<div class = "col-md-6" style="padding: 10px;">
+						<a href="https://opensea.io/assets/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/${tokenId}" target="_blank">
+							<button type="button" class="btn btn-secondary social-link-button" >
+								<input type="image" src='assets/images/opensea.png' width="25" />
+							</button>
+						</a>
+					</div>
+
+                    <div style="padding: 10px;">
+                        <h3 id="tokenNumber" class="alt-features-title font-alt light_orange_tint">Token Owner: </h3>
+                        <h1 id="tokenOwner" class="alt-features-title font-alt white_tint">0x...</h1>
+                    </div>
+
+                    <div style="padding: 10px;">
+                        <h3 id="tokenNumber" class="alt-features-title font-alt light_orange_tint">Attributes: </h3>
+                        <div class = "col-md-6" style="padding: 10px;">
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Skin:</span> ${skin}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Tattoo:</span> ${tattoo}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Mouth:</span> ${mouth}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Eyes:</span> ${eyes}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Hair:</span> ${hair}</h6>
+                        </div>
+                        <div class="col-md-6" style="padding: 10px;">
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Clothes:</span> ${clothes}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Facial Hair:</span> ${facial_hair}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Ear:</span> ${ear_jewel}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Neck:</span> ${neck_jewel}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Accessories:</span> ${accessory}</h6>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var modal = document.getElementById("myModal");
+                    var span = document.getElementsByClassName("close")[0];
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+						$('#modalContent').remove();
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+							$('#modalContent').remove();
+                        }
+                    }
+                </script>
+            </div>
+			`;
+
+
+	$('#myModal').append(popupText);
+	document.getElementById('myModal').style.display = 'block';
+	
+}
+
+function gallery(list_start, list_end){
+	// Use Json Sorter to _metadata.json by edition https: //codeshack.io/json-sorter/
 	fetch('assets/json/_metadata.json', {
 		method: 'GET'
 	})
 		.then(function (response) { return response.json(); })
 		.then(function (json) {
 			// use the json
-			console.log(json);
 			var htmlText = json.slice(list_start, list_end).map(function (o) {
 				return `
-				<div id = "addedGalleryItems" class="col-sm-6 col-md-2 col-lg-2">
-					<div class="alt-features-item" style="margin-top: 20px;">
-						<div>
+				<div id = "addedGalleryItems" class="col-sm-3 col-md-2 col-lg-2">
+					<div class="alt-features-item" style="margin-top: 20px; padding-left: 0px;">
+						<div onclick="popupGallery(${o.edition}, '${o.image}', '${o.attributes[1].value}', '${o.attributes[2].value}', '${o.attributes[3].value}', '${o.attributes[4].value}', '${o.attributes[5].value}', '${o.attributes[6].value}', 'fcl_hr(TEST)', '${o.attributes[7].value}', 'nck_jwl(TEST)', 'acc(TEST)')" >
 							<img id = "tokenImage" class="nft-thumbnail" src="${o.image}"/>
 						</div>
 						<h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px;">CUTZ</h3>
 						<h3 id = "tokenNumber" class="alt-features-title font-alt black_tint">No. ${o.edition}</h3>
+
 					</div>
 				</div>
 			`;
@@ -2647,7 +2711,6 @@ async function connect() {
 	const account = accounts[0];
 	console.log(accounts[0]);
 	document.getElementById('connectButton').innerHTML = accounts[0].substring(0, 6) + "..";
-	document.getElementById('minterWallet2').innerHTML = "Your Wallet: " + accounts[0].substring(0, 16) + "...";
 }
 // Web3 wallet sign in end
 
@@ -2678,6 +2741,7 @@ async function totalSupply(){
 
 	var totalSupplyCUTZ = await CUTZContract.methods.totalSupply().call().then(function (response) {
 		console.log(response[0] + " / 5000");
+		totalTokensMinted = response[0];
 		// document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 5000";
 		// document.getElementById('totalSupplyValue2').innerHTML = response[0] + " / 5000";
 	});

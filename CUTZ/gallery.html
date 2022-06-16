@@ -50,247 +50,12 @@
     <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
 
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
 
-    <style>
-        .link-button {
-            background-color: #ffffff;
-            color: #121212;
-            height: 70px;
-            padding: 10px;
-            margin: 2px;
-        }
-
-        .link-button:hover {
-            background: #f57268;
-            color: #ffffff;
-        }
-
-        .banner_video video {
-            position: fixed;
-            object-fit: cover;
-        }
-
-        .navbar-brand img {
-            width: 12%;
-        }
-
-        .modal-footer {
-            display: table;
-            width: 100%;
-        }
-
-        .wrapper-div {
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .nft-thumbnail {
-            border-radius: 10px;
-        }
-
-        .blank-link-button {
-            background-color: rgba(0, 0, 0, 0);
-            color: #ffffff;
-            border: 2px solid rgba(0, 0, 0, 0);
-            border-radius: 5px;
-            height: 40px;
-            width: 40px;
-        }
-
-        .social-link-button {
-            background-color: #000000;
-            color: #ffffff;
-            border: 2px solid #ed7b49;
-            border-radius: 5px;
-            height: 50px;
-            width: 50px;
-            font-size: 12px;
-            padding: 10px;
-            margin: 0px;
-            position: relative;
-        }
-
-        .social-link-button:hover {
-            background: #ffffff;
-            color: #ed7b49;
-        }
-
-        .sale-link-button {
-            background-color: #000000;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            border-radius: 5px;
-            height: 65px;
-            width: 300px;
-            font-size: 25px;
-            padding: 10px;
-            margin: 20px;
-        }
-
-        .sale-link-button:hover {
-            background: #ffffff;
-            color: #ed7b49;
-        }
-
-        .connect-link-button {
-            background-color: #000000;
-            color: #ffffff;
-            border: 2px solid #ed7b49;
-            border-radius: 5px;
-            height: 50px;
-            width: 100px;
-            font-size: 12px;
-            padding: 10px;
-            margin: 0px;
-            position: relative;
-        }
-
-        .connect-link-button:hover {
-            background: #ffffff;
-            color: #ed7b49;
-        }
-
-        .mint-amount-link-button {
-            background-color: #000000;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            border-radius: 5px;
-            height: 40px;
-            width: 40px;
-        }
-
-        .mint-amount-link-button:hover {
-            background: #ffffff;
-            color: #ed7b49;
-        }
-
-        .responsive_mint2 {
-            visibility: hidden;
-            display: none;
-        }
-
-        @media screen and (max-width: 750px) {
-            .sale-link-button {
-                width: 60%;
-                font-size: 10px;
-            }
-
-            .connect-link-button {
-                width: 60%;
-                font-size: 10px;
-            }
-
-            .banner_video video {
-                min-height: 900px;
-                height: 100%;
-            }
-
-            .navbar-brand img {
-                width: 20%;
-            }
-
-            .responsive_mint {
-                visibility: hidden;
-                clear: both;
-                float: left;
-                margin: 10px auto 5px 20px;
-                width: 28%;
-                display: none;
-            }
-
-            .responsive_mint2 {
-                visibility: visible;
-                display: block !important;
-            }
-        }
-
-        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation:portrait) {
-            .banner_video video {
-                min-height: 1366px;
-                height: 100%;
-            }
-        }
-
-
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-
-        mark {
-            background-color: #f57268;
-            color: black;
-        }
-
-        .disableLink {
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .red_tint {
-            color: #f57268;
-        }
-
-        .black_tint {
-            color: #000000;
-        }
-
-        .white_tint {
-            color: #ffffff;
-        }
-
-        .scroll-bound {
-            width: 100%;
-
-
-        }
-
-        /* .content {
-        height: auto !important;
-        width: 100%;
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      } */
-
-        .hoverme {
-            /*      width: 240px;
-      text-align: center;
-      padding: 10px 0;
-      cursor: pointer;
-      position: relative;*/
-
-            div:hover {
-                background-color: yellow;
-
-                @for $i from 1 through 50 {
-                    i:nth-of-type(#{$i}) {
-                        transform: translate3d(random(190) - 100 + px,
-                                random(200) - 100 + px,
-                                0) rotate(random(360) + deg);
-                        background: hsla(random(360), 100%, 50%, 1);
-                        animation: bang 700ms ease-out forwards;
-                        opacity: 0;
-                    }
-                }
-            }
-        }
-
-        @keyframes bang {
-            from {
-                transform: translate3d(0, 0, 0);
-                opacity: 1;
-            }
-        }
-    </style>
-
 </head>
+
+
 
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -302,7 +67,13 @@
                 </video>
             </div>
         </div>
-        <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            
+        </div>
+
+        <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation" style="background-color: rgb(0 0 0 / 80%);">
             <div class="container" style="margin: 20px !important; margin-left: auto !important;">
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
@@ -339,7 +110,7 @@
         <section class="home-full-height" id="home"
             style="position: relative; background-color: #ed7b49; height: auto !important;">
 
-            <div class="container" style="padding-top: 80px;">
+            <div class="container" style="padding-top: 200px;">
                 <div class="row">
                     
                 </div>
@@ -353,7 +124,7 @@
 
         </section>
 
-        <div class="main" id="intro">
+        <div id="intro">
             <section class="module" style="background-color: #ed7b49;">
                 <div class="container">
                     <div class="row">
@@ -361,7 +132,7 @@
 
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-4">
-                            <button id="claimButton" class="btn btn-secondary connect-link-button" onclick="loadMoreGallery()"
+                            <button id="loadMoreButton" class="btn btn-secondary connect-link-button" onclick="loadMoreGallery()"
                                 style="width: 100%; margin: 0%;">LOAD MORE</button>
                         </div>                    
                         <div class="col-sm-6 col-md-4 col-lg-4">
