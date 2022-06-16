@@ -12,7 +12,6 @@
 }
 
 .banner_video video {
-    position: fixed;
     object-fit: cover;
 }
 

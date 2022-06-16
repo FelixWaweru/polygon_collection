@@ -1,8 +1,10 @@
 window.onload = function () {
 	connect(),
+	networkCheck(),
 	gallery(galleryStart, gallerySize),
 	totalSupply(),
-	saleState()
+	saleState(),
+	claimState()
 };
 
 // CUTZ Token
@@ -2571,7 +2573,11 @@ var COMBZ_DAOABI = [
 // Gallery Function
 var gallerySize = 18;
 var galleryStart = 0;
-var totalTokensMinted = 60;
+var totalTokensMinted;
+
+//Gas Values
+var gasLimitVal = 3000000000;
+var chainIDValue = 80001;// 137 for Polygon Mainet
 
 function loadMoreGallery() {
 	
@@ -2582,9 +2588,11 @@ function loadMoreGallery() {
 	{
 		galleryStart = gallerySize;
 		gallerySize += (totalTokensMinted - gallerySize);
+		document.getElementById('loadMoreButton').disabled = true;
 	}
 
 	gallery(galleryStart, gallerySize)
+	console.log(totalTokensMinted);
 	
 }
 
@@ -2703,7 +2711,21 @@ function gallery(list_start, list_end){
 		});
 }
 
-// Token functions
+async function networkCheck() {
+
+	console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion');
+	if (window.ethereum.networkVersion != 80001) {
+		document.getElementById("networkWarning").style.display = 'block';
+	}
+
+	window.ethereum.on("chainChanged", function (accounts) {
+		// Time to reload your interface with accounts[0]!
+		window.location.reload();
+	});
+	
+}
+
+// Web3 wallet sign in start
 async function connect() {
 	// Connect to wallet
 	//Get Account info
@@ -2711,9 +2733,33 @@ async function connect() {
 	const account = accounts[0];
 	console.log(accounts[0]);
 	document.getElementById('connectButton').innerHTML = accounts[0].substring(0, 6) + "..";
+
+	window.ethereum.on('accountsChanged', function (accounts) {
+		// Time to reload your interface with accounts[0]!
+		window.location.reload();
+	});
 }
 // Web3 wallet sign in end
 
+
+// Function used to get claim state
+async function claimState() {
+	const web3 = new Web3(window.web3.currentProvider);
+
+	var COMBZContract = new web3.eth.Contract(COMBZABI, COMBZAddress);
+
+	var saleStateCOMBZ = await COMBZContract.methods.paused().call().then(function (response) {
+		if (response.toString() == "true") {
+			document.getElementById('claimResponse').innerHTML = "Claim is not active ❌";
+			document.getElementById('claimButton').disabled = true;
+		}
+		else if (response.toString() == "false") {
+			document.getElementById('claimResponse').innerHTML = "Claim is active 🎉";
+			document.getElementById('claimButton').disabled = false;
+		}
+
+	});
+}
 
 
 // Function used to claim COMBZ
@@ -2728,7 +2774,10 @@ async function claimToken() {
 
 	var claimCOMBZ = await COMBZContract.methods.claim().send({
 		to: COMBZAddress,
-		from: accounts[0]
+		from: accounts[0],
+		gas: 200000,
+		gasPrice: gasLimitVal,
+		gasLimit: gasLimitVal
 	});
 }
 
@@ -2740,7 +2789,6 @@ async function totalSupply(){
 	var CUTZContract = new web3.eth.Contract(CUTZABI, CUTZAddress);
 
 	var totalSupplyCUTZ = await CUTZContract.methods.totalSupply().call().then(function (response) {
-		console.log(response[0] + " / 5000");
 		totalTokensMinted = response[0];
 		// document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 5000";
 		// document.getElementById('totalSupplyValue2').innerHTML = response[0] + " / 5000";
@@ -2756,16 +2804,16 @@ async function saleState(){
 	var saleStateCUTZ = await CUTZContract.methods.saleIsActive().call().then(function (response) {
 		if(response.toString() == "false")
 		{
-			document.getElementById('mintResponse').innerHTML = "Sale is not active ❌";
-			//document.getElementById('mintButton').disabled = true;
-			document.getElementById('mintResponse2').innerHTML = "Sale is not active ❌";
+			document.getElementById('mintResponse').innerHTML = "Mint is not active ❌";
+			document.getElementById('mintButton').disabled = true;
+			document.getElementById('mintResponse2').innerHTML = "Mint is not active ❌";
 			document.getElementById('mintButton2').disabled = true;
 		}
 		else if(response.toString() == "true")
 		{
-			document.getElementById('mintResponse').innerHTML = "Sale is active 🎉";
+			document.getElementById('mintResponse').innerHTML = "Mint is active 🎉";
 			document.getElementById('mintButton').disabled = false;
-			document.getElementById('mintResponse2').innerHTML = "Sale is active 🎉";
+			document.getElementById('mintResponse2').innerHTML = "Mint is active 🎉";
 			document.getElementById('mintButton2').disabled = false;
 		}
 		
@@ -2782,8 +2830,13 @@ async function minter(){
 	// var amount = (numberOfTokens*priceOfTokens).toString();
 
 	var numberOfTokens = document.getElementsByName('mint-quantity')[0].value;
+	
 
 	var amount = document.getElementsByName('mint-price')[0].value;
+	
+	if(amount == ""){
+		amount = "0";
+	}
 
 	const web3 = new Web3(window.web3.currentProvider);
 	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -2808,7 +2861,6 @@ async function minter(){
 	var CUTZContract = new web3.eth.Contract(CUTZABI, CUTZAddress);
 
 	var gas = await web3.eth.estimateGas({ from: accounts[0] });
-	var gasLimitVal = 3000000;
 	// var gasLimitVal = web3.eth.getBlock("latest").gasLimit;
 
 	console.log("Gas Limit: " + gasLimitVal);
@@ -2817,24 +2869,39 @@ async function minter(){
 	var mintCUTZ = await CUTZContract.methods.mintCutz(numberOfTokens).send({
 				to: CUTZAddress,
 			    from: accounts[0],
+				gas: 200000,
 			    gasPrice: gasLimitVal,
 				gasLimit: gasLimitVal,
 			    value: amount
 			});
 
-	//the transaction
-	// const tx = {
-	// 	'from': accounts[0],
-	// 	'to': CUTZAddress,
-	// 	'gas': await web3.eth.estimateGas({ from: accounts[0] }),
-	// 	'gasLimit': await web3.eth.getBlock("latest").gasLimit,
-	// 	'value': amount,
-	// 	'maxPriorityFeePerGas': 1999999987,
-	// 	'data': CUTZContract.methods.mintCutz(numberOfTokens).encodeABI()
-	// };
+// 	// the transaction
+// 	const tx = {
+// 		'from': accounts[0],
+// 		'to': CUTZAddress,
+// 		'gas': await web3.eth.estimateGas({ from: accounts[0] }),
+// 		'gasLimit': await web3.eth.getBlock("latest").gasLimit,
+// 		'value': amount,
+// 		'maxPriorityFeePerGas': 1999999987,
+// 		'data': CUTZContract.methods.mintCutz(numberOfTokens).encodeABI()
+// 	};
 
-	// //step 4: Sign the transaction
-	// const transactionReceipt = await web3.eth.sendTransaction(tx);
+// 	//step 4: Sign the transaction
+// 	const transactionReceipt = await web3.eth.sendTransaction(tx);
 
-	// console.log(`Transaction receipt: ${JSON.stringify(transactionReceipt)}`);
+// 	console.log(`Transaction receipt: ${JSON.stringify(transactionReceipt)}`);
+}
+
+function increaseToken(params) {
+	var value = parseInt(document.getElementById('numberOfTokensSelect').value, 10);
+	value = isNaN(value) ? 0 : value;
+	value++;
+	document.getElementById('numberOfTokensSelect').value = value;	
+}
+
+function decreaseToken(params) {
+	var value = parseInt(document.getElementById('numberOfTokensSelect').value, 10);
+	value = isNaN(value) ? 0 : value;
+	value--;
+	document.getElementById('numberOfTokensSelect').value = value;
 }

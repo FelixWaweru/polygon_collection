@@ -301,6 +301,25 @@
         </div>
         <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
             <div class="container" style="margin: 20px !important; margin-left: auto !important;">
+
+                <div id="networkWarning" class="col-md-12" style="background-color: red; margin-bottom: 20px; display: none;">
+                    <div class="col-md-12">
+                        <div id="addedGalleryItems" class="col-md-3">
+                    
+                        </div>
+                        <div id="addedGalleryItems" class="col-md-6">
+                            <div style="margin-top: 10px; margin-bottom: 10px; padding-left: 0px;">
+                                <h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px; text-align: center;">
+                                    SWITCH TO THE POLYGON MAINNET TO CONTINUE
+                                </h3>
+                            </div>
+                        </div>
+                        <div id="addedGalleryItems" class="col-md-3">
+                    
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -336,9 +355,9 @@
         <section class="home-section home-full-height bg-dark bg-gradient parallax-bg" id="home"
             style="position: relative;">
 
-            <div class="titan-caption responsive_mint" style="position: absolute;">
+            <div class="titan-caption" style="position: absolute;">
                 <div class="caption-content col-sm-12" style="background-color: #ed7b49; height: 100%; padding: 0px;">
-                    <div style="filter: brightness(25%);">
+                    <div class = "banner_video" style="filter: brightness(25%);">
                         <video width="100%" muted preload autoplay loop>
                             <source src="assets/images/load_banner.webm" type="video/webm">
                         </video>
@@ -362,63 +381,8 @@
                         <div style="padding-top: 80px;">
                             <button id="claimButton" class="btn btn-secondary sale-link-button" onclick="claimToken()"
                                 style="margin: 0px;">CLAIM COMBZ</button>
-
-                            <h2 id="mintResponse" class="module-title font-alt black_tint"
-                                style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <!-- MOBILE PHONE RESPONSIVE MINT -->
-
-
-
-            <div class="titan-caption responsive_mint2" style="background-color: #ed7b49; position: absolute;">
-                <div class="caption-content col-sm-8" style="background-color: #ed7b49; height: 100%; padding: 0px;">
-                    <img src="assets/images/bg.png" style="height: 100%; object-fit: cover; overflow: hidden;"
-                        alt="Feature Image" />
-
-
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div class="alt-services-image align-center" style="padding-top: 0px;">
-
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-sm-offset-3" style="position: absolute;top: 150px;left: 0;right: 0;">
-                        <!-- <h2 class="module-title font-alt black_tint" style="font-size: 85px; margin-bottom: 0px !important;">CUTZ</h2> -->
-                        <img src="assets/images/COMBZ_Logo.png" style="height:150px !important;" alt="Feature Image" />
-                        <h2 class="module-title font-alt black_tint"
-                            style="font-size: 15px; margin-bottom: 20px !important;">
-                            Get your fresh cut here!
-                            </br></br>
-                            All <span class="black_tint">CUTZ</span> are <span class="black_tint">free</span> to mint
-                            but feel free to set
-                            your own price :)</h2>
-                        <div class="btn-group" style="width: 100%;">
-
-                            <input type="button" value=" " class="plus blank-link-button" disabled>
-                            <input type="number" max="" name="mint-price" title="Mint Price" placeholder="Mint Price"
-                                class="black_tint" style="height: 40px; width: 40% !important;">
-                            <input type="button" value="ETH" class="plus blank-link-button" disabled>
-
-                            </br></br>
-
-                            <input type="button" value="-" class="minus mint-amount-link-button">
-                            <input type="number" step="1" min="1" max="10" name="quantity" placeholder="Token Quantity"
-                                title="Qty" class="black_tint" style="height: 40px; width: 40%;">
-                            <input type="button" value="+" class="plus mint-amount-link-button">
-                        </div>
-
-                        <div style="padding-top: 20px;">
-                            <button id="claimButton" type="button" class="btn btn-secondary sale-link-button"
-                                onclick="minter()" style="margin: 0px;">MINT NOW</button>
-
-                            <h2 id="mintResponse" class="module-title font-alt black_tint"
+                        </br>
+                            <h2 id="claimResponse" class="module-title font-alt black_tint"
                                 style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
 
                         </div>
