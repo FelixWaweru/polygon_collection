@@ -2,9 +2,9 @@
 var express = require('express');
 var app = express();
 const router = express.Router();
-// const path = require('path');
+const path2 = require('path');
 
-var path = "C:/Users/HP/Documents/Code/GitHub/polygon_collection/CUTZ/";
+var path = __dirname + "/";
 
 // Setup routes
 router.use(function (req,res,next) {
