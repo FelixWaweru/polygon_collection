@@ -2,6 +2,9 @@
 var express = require('express');
 var app = express();
 const router = express.Router();
+// const path = require('path');
+
+var path = "C:/Users/HP/Documents/Code/GitHub/polygon_collection/CUTZ/";
 
 // Setup routes
 router.use(function (req,res,next) {
@@ -15,6 +18,10 @@ router.get('/', function(req,res){
 
 router.get('/COMBZ', function (req, res) {
   res.sendFile(path + 'combz.html');
+});
+
+router.get('/gallery', function (req, res) {
+  res.sendFile(path + 'gallery.html');
 });
 
 
