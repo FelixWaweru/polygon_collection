@@ -2,10 +2,11 @@
 
 pragma solidity ^0.8.0;
 
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Strings.sol";
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 /*
 
@@ -90,7 +91,7 @@ contract CUTZ is ERC721, Ownable {
             reservedSupply++;
             _safeMint(msg.sender, reserve[i]);
         }
-        totalSupply = mintedSupply + reservedSupply;
+        totalSupply += reserve.length;
     }
 
     function setBaseURI(string memory _base) public onlyOwner {
@@ -134,7 +135,7 @@ contract CUTZ is ERC721, Ownable {
             mintedSupply++;
             _safeMint(msg.sender, newTokenID);
         }
-        totalSupply = mintedSupply + reservedSupply;
+        totalSupply += numberOfTokens;
     }
 
     /**

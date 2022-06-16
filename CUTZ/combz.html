@@ -23,11 +23,11 @@
 
     <title>CUTZ</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicons/site.webmanifest">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -316,9 +316,9 @@
 
 
             <li><a class="section-scroll" href="index.html#home">Mint</a></li>
+            <li><a class="section-scroll" href="index.html#creator">Creator</a></li>
             <li><a class="section-scroll" href="gallery.html">Gallery</a></li>
             <li><a class="section-scroll" href="combz.html">Combz</a></li>
-            <li><a class="section-scroll" href="index.html#creator">Creator</a></li>
                         <button id="connectButton" type="button" class="btn btn-secondary connect-link-button"
                             onclick="connect()" style="margin: 0px;">CONNECT</button>
                     </ul>
@@ -354,12 +354,12 @@
                         <img src="assets/images/COMBZ_Logo.png" style="height:150px !important;" alt="Feature Image" />
                         <h2 class="module-title font-alt black_tint"
                             style="font-size: 15px; margin-bottom: 20px !important;">
-                            Welcome to the BarberShop!
+                            A collection of tokens that give you membership access to The BarberShop!
                             </br></br>
-                            Use your Combz token here!</h2>
+                            Get yourself a COMBZ to manage your CUTZ!</h2>
                             
                         <div style="padding-top: 80px;">
-                            <button id="claimButton" class="btn btn-secondary sale-link-button" onclick="minter()"
+                            <button id="claimButton" class="btn btn-secondary sale-link-button" onclick="claimToken()"
                                 style="margin: 0px;">CLAIM COMBZ</button>
 
                             <h2 id="mintResponse" class="module-title font-alt black_tint"
