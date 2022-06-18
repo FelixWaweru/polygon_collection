@@ -2,6 +2,15 @@
 <html lang="en-US" dir="ltr">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1DT5Y8FQX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-V1DT5Y8FQX');
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -355,7 +364,7 @@
       style="position: relative;">
 
         <div class="titan-caption responsive_mint" style="position: absolute;">
-          <div class="caption-content col-sm-8" style="background-color: #ed7b49; height: 100%; padding: 0px;">
+          <div class="caption-content col-sm-7" style="background-color: #ed7b49; height: 100%; padding: 0px;">
             <img src="assets/images/bg.png" style="height: 100%; object-fit: cover; overflow: hidden;" alt="Feature Image" />
 
 
@@ -365,7 +374,7 @@
               </div>
             </div>
 
-            <div class="col-sm-6 col-sm-offset-3" style="position: absolute;top: 120px;left: 0;right: 0;">
+            <div class="col-sm-12" style="position: absolute;top: 120px;left: 0;right: 0;">
               <!-- <h2 class="module-title font-alt black_tint" style="font-size: 85px; margin-bottom: 0px !important;">CUTZ</h2> -->
               <img src="assets/images/CUTZ_Logo.png" style="height:150px !important;" alt="Feature Image" />
               <h2 class="module-title font-alt black_tint" style="font-size: 15px; margin-bottom: 20px !important;">
@@ -377,20 +386,20 @@
                   
                 <input type="button" value=" " class="plus blank-link-button" disabled>
                 <input id="priceOfTokensSelect" type="number" max="" name="mint-price" title="Mint Price" placeholder="Mint Price (0.0 Default)" class="black_tint"
-                  style="height: 40px; width: 40% !important;">
+                  style="height: 40px; width: 30% !important;">
                 <input type="button" value="ETH" class="plus blank-link-button" disabled>
 
                   </br></br>
 
                   <input type="button" value="-" class="minus mint-amount-link-button" onclick="decreaseToken()">
                   <input id="numberOfTokensSelect" type="number" step="1" min="1" max="10" name="mint-quantity" placeholder="Token Quantity" title="Qty" class="black_tint" 
-                  style="height: 40px; width: 40%;">
+                  style="height: 40px; width: 30%;">
                   <input type="button" value="+" class="plus mint-amount-link-button" onclick="increaseToken()">
               </div>
 
               <div style="padding-top: 20px;">
                 <button id="mintButton" class="btn btn-secondary sale-link-button" onclick="minter()"
-                  style="width: 100%; margin: 0px;">MINT NOW</button>
+                  style="width: 40%; margin: 0px;">MINT NOW</button>
 
                 <h2 id="mintResponse" class="module-title font-alt black_tint"
                   style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
@@ -399,7 +408,7 @@
             </div>
 
           </div>
-          <div class="col-sm-4" style="background-color: #ffffff; height: 100%; padding: 0px;">
+          <div class="col-sm-5" style="background-color: #ffffff; height: 100%; padding: 0px;">
             <img src="assets/images/28.png" style="height: 100%; object-fit: cover; overflow: hidden;"
               alt="Feature Image" />
           </div>

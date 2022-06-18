@@ -2618,7 +2618,7 @@ async function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair
 				<!-- Modal content -->
             <div id = "modalContent" class="container modal-content">
                 <span class="close">&times;</span>
-                <div class="col-md-6 alt-features-item" style="margin-top: 20px;">
+                <div class="col-md-6 alt-features-item" style="margin-top: 0px;">
                     <div>
                         <img id="tokenImage" class="nft-thumbnail" width="100%" src="${tokenImage}" />
                     </div>
