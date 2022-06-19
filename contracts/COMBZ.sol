@@ -41,7 +41,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 
 contract COMBZ is ERC20, Pausable, Ownable, ERC20Permit, ERC20Votes {
 
-    uint256 public claimAmount = 100 * 10 ** decimals();
+    uint256 public claimAmount = 100 * 10 ** decimals();// Each CUTZ can claim 100 COMBZ
     address public cutzAddress;
 
     mapping(uint256 => bool) claimedTokens;
@@ -52,7 +52,6 @@ contract COMBZ is ERC20, Pausable, Ownable, ERC20Permit, ERC20Votes {
 
     // Claim COMBZ token for CUTZ holders
     function claim() public payable{
-        // require(!paused, "The contract is paused!");
         require(msg.sender != owner(), "unable to claim as owner");
         uint _userBalance = ERC721Enumerable(cutzAddress).balanceOf(msg.sender);
 
