@@ -9,7 +9,7 @@ window.onload = function () {
 
 // CUTZ Token
 // Alterative: var CUTZAddress = "0xFf84cf6d20a6Cf84983b2E79954Bdb264F44d720", "0x933a963224D2c7248747c3ab8571Bc1a36f83D73";
-var CUTZAddress = "0x818fF83B25B9f88C5F7833a6437f687eca31A6CA";
+var CUTZAddress = "0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798";
 var CUTZABI = [
 	{
 		"inputs": [
@@ -213,19 +213,6 @@ var CUTZABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "creatorAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -703,7 +690,7 @@ var CUTZABI = [
 	}
 ];
 
-var COMBZAddress = "0x85a6F37bae07C85e1bCC8B654e13649794882381";
+var COMBZAddress = "0x441B7fE91970224E578b3a1832e8E24B529345B5";
 var COMBZABI = [
 	{
 		"inputs": [
@@ -1469,8 +1456,8 @@ var COMBZABI = [
 	}
 ];
 
-var COMBZ_DAOAddress = "0xe255e3c5c56155E4766b7Dbd1e867938aeaC014E";
-var COMBZ_DAOABI = [
+var CUTZ_DAOAddress = "0x0b4cB034F3FFE6c300231122ED0B2CD4fe211659";
+var CUTZ_DAOABI = [
 	{
 		"inputs": [
 			{
@@ -1604,6 +1591,25 @@ var COMBZ_DAOABI = [
 			{
 				"indexed": false,
 				"internalType": "uint256",
+				"name": "oldProposalThreshold",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newProposalThreshold",
+				"type": "uint256"
+			}
+		],
+		"name": "ProposalThresholdSet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
 				"name": "oldQuorumNumerator",
 				"type": "uint256"
 			},
@@ -1714,6 +1720,44 @@ var COMBZ_DAOABI = [
 			}
 		],
 		"name": "VoteCastWithParams",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "oldVotingDelay",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newVotingDelay",
+				"type": "uint256"
+			}
+		],
+		"name": "VotingDelaySet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "oldVotingPeriod",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newVotingPeriod",
+				"type": "uint256"
+			}
+		],
+		"name": "VotingPeriodSet",
 		"type": "event"
 	},
 	{
@@ -2439,6 +2483,45 @@ var COMBZ_DAOABI = [
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "newProposalThreshold",
+				"type": "uint256"
+			}
+		],
+		"name": "setProposalThreshold",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newVotingDelay",
+				"type": "uint256"
+			}
+		],
+		"name": "setVotingDelay",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newVotingPeriod",
+				"type": "uint256"
+			}
+		],
+		"name": "setVotingPeriod",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "proposalId",
 				"type": "uint256"
 			}
@@ -2548,7 +2631,7 @@ var COMBZ_DAOABI = [
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "pure",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -2561,7 +2644,7 @@ var COMBZ_DAOABI = [
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "pure",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -2577,8 +2660,8 @@ var totalTokensMinted;
 
 //Gas Values
 var gasLimitVal = 3000000000;
-var chainIDValue = 80001;// 137 for Polygon Mainet
-var blockExplorer = "https://mumbai.polygonscan.com/tx/";
+var chainIDValue = 137;// 137 for Polygon Mainet, 80001 for Mumbai Testnet
+var blockExplorer = "https://polygonscan.com/tx/";
 var gasStandardValue = 1500000;
 
 function loadMoreGallery() {
@@ -2600,7 +2683,7 @@ function loadMoreGallery() {
 
 async function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair, clothes, facial_hair, ear_jewel, neck_jewel, accessory){
 	const Http = new XMLHttpRequest();
-	const url = 'https://api.covalenthq.com/v1/1/tokens/0xED5AF388653567Af2F388E6224dC7C4b3241C544/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
+	const url = 'https://api.covalenthq.com/v1/1/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
 	Http.open("GET", url);
 	Http.send();
 	var covalentMetadata;
@@ -2629,7 +2712,7 @@ async function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair
                         <h3 id="tokenNumber" class="alt-features-title font-alt black_tint">No. ${tokenId}</h3>
                     </div>
 					<div class = "col-md-6" style="padding: 10px;">
-						<a href="https://opensea.io/assets/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/${tokenId}" target="_blank">
+						<a href="https://opensea.io/assets/ethereum/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/${tokenId}" target="_blank">
 							<button type="button" class="btn btn-secondary social-link-button" >
 								<input type="image" src='assets/images/opensea.png' width="25" />
 							</button>
@@ -2716,7 +2799,7 @@ function gallery(list_start, list_end){
 async function networkCheck() {
 
 	console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion');
-	if (window.ethereum.networkVersion != 80001) {
+	if (window.ethereum.networkVersion != chainIDValue) {
 		document.getElementById("networkWarning").style.display = 'block';
 	}
 
@@ -2821,7 +2904,7 @@ async function delegateToken() {
 
 async function popupProposal(tokenId) {
 	const Http = new XMLHttpRequest();
-	const url = 'https://api.covalenthq.com/v1/1/tokens/0xED5AF388653567Af2F388E6224dC7C4b3241C544/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
+	const url = 'https://api.covalenthq.com/v1/1/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
 	Http.open("GET", url);
 	Http.send();
 	var covalentMetadata;
@@ -2845,7 +2928,7 @@ async function popupProposal(tokenId) {
                         <h3 id="tokenNumber" class="alt-features-title font-alt black_tint">No. ${tokenId}</h3>
                     </div>
 					<div class = "col-md-6" style="padding: 10px;">
-						<a href="https://opensea.io/assets/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/${tokenId}" target="_blank">
+						<a href="https://opensea.io/assets/ethereum/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/${tokenId}" target="_blank">
 							<button type="button" class="btn btn-secondary social-link-button" >
 								<input type="image" src='assets/images/opensea.png' width="25" />
 							</button>
