@@ -58,18 +58,16 @@ contract CUTZ is ERC721Enumerable, Ownable {
     uint256 public maxCharacterPerWallet;
     uint256 public maxCharacterPurchase;
 
-    bool public saleIsActive = false;
-    bool public burnIsActive = false;
-
-    // address public constant creatorAddress = 0x8B913B9385Bb118Ec20c27D4E5376288bf53b0Bd;
-    // Testing Wallet Address
-    address public constant creatorAddress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    bool public saleIsActive;
+    bool public burnIsActive;
 
     constructor(uint256 maxNftSupply) ERC721("Cutz", "CUTZ") {
         MAX_CHARACHTERS = maxNftSupply;
         charachterPrice = 0; //0.0 ETH
         maxCharacterPerWallet = 20;
         maxCharacterPurchase = 10;
+        saleIsActive = false;
+        burnIsActive = false;
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
@@ -80,7 +78,7 @@ contract CUTZ is ERC721Enumerable, Ownable {
     }
 
     function withdraw() public onlyOwner {
-        payable(creatorAddress).transfer(address(this).balance);
+        payable(msg.sender).transfer(address(this).balance);
     }
 
     /**

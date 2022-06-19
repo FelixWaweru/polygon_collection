@@ -2785,6 +2785,34 @@ async function claimToken() {
 
 		} else {
 			document.getElementById('claimButton').innerHTML = "CLAIM COMBZ";
+			document.getElementById('delegateButton').disabled = false;
+			var transactionLink = blockExplorer + tx;
+			window.open(transactionLink, '_blank').focus();
+		}
+	});
+}
+
+async function delegateToken() {
+	const web3 = new Web3(window.web3.currentProvider);
+
+	var COMBZContract = new web3.eth.Contract(COMBZABI, COMBZAddress);
+
+	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+	document.getElementById('delegateButton').innerHTML = "DELEGATING..";
+
+	var delegateCOMBZ = await COMBZContract.methods.delegate(accounts[0]).send({
+		to: COMBZAddress,
+		from: accounts[0],
+		gas: gasStandardValue,
+		gasPrice: gasLimitVal,
+		gasLimit: gasLimitVal
+	}, function (error, tx) {
+		if (error) {
+
+		} else {
+			document.getElementById('delegateButton').innerHTML = "DELEGATE COMBZ";
+			document.getElementById('delegateButton').disabled = true;
 			var transactionLink = blockExplorer + tx;
 			window.open(transactionLink, '_blank').focus();
 		}
