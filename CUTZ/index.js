@@ -2929,7 +2929,7 @@ async function popupProposal(tokenId) {
                         <h3 id="tokenNumber" class="alt-features-title font-alt black_tint">No. ${tokenId}</h3>
                     </div>
 					<div class = "col-md-6" style="padding: 10px;">
-						<a href="https://opensea.io/assets/ethereum/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/${tokenId}" target="_blank">
+						<a href="https://opensea.io/assets/matic/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/${tokenId}" target="_blank">
 							<button type="button" class="btn btn-secondary social-link-button" >
 								<input type="image" src='assets/images/opensea.png' width="25" />
 							</button>
