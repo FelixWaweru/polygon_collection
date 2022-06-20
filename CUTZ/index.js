@@ -2683,7 +2683,7 @@ function loadMoreGallery() {
 
 async function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair, clothes, facial_hair, ear_jewel, neck_jewel, accessory){
 	const Http = new XMLHttpRequest();
-	const url = 'https://api.covalenthq.com/v1/1/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
+	const url = 'https://api.covalenthq.com/v1/137/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
 	Http.open("GET", url);
 	Http.send();
 	var covalentMetadata;
@@ -2735,9 +2735,9 @@ async function popupGallery(tokenId, tokenImage, skin, tattoo, mouth, eyes, hair
                         </div>
                         <div class="col-md-6" style="padding: 10px;">
                             <h6 class="font-alt white_tint"><span class = "light_orange_tint">Clothes:</span> ${clothes}</h6>
-                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Facial Hair:</span> ${facial_hair}</h6>
-                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Ear:</span> ${ear_jewel}</h6>
-                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Neck:</span> ${neck_jewel}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Ear:</span> ${facial_hair}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Neck:</span> ${ear_jewel}</h6>
+                            <h6 class="font-alt white_tint"><span class = "light_orange_tint">Facial Hair:</span> ${neck_jewel}</h6>
                             <h6 class="font-alt white_tint"><span class = "light_orange_tint">Accessories:</span> ${accessory}</h6>
                         </div>
                     </div>
@@ -2780,7 +2780,7 @@ function gallery(list_start, list_end){
 				return `
 				<div id = "addedGalleryItems" class="col-sm-3 col-md-2 col-lg-2">
 					<div class="alt-features-item" style="margin-top: 20px; padding-left: 0px;">
-						<div onclick="popupGallery(${o.edition}, '${o.image}', '${o.attributes[1].value}', '${o.attributes[2].value}', '${o.attributes[3].value}', '${o.attributes[4].value}', '${o.attributes[5].value}', '${o.attributes[6].value}', 'fcl_hr(TEST)', '${o.attributes[7].value}', 'nck_jwl(TEST)', 'acc(TEST)')" >
+						<div onclick="popupGallery(${o.edition}, '${o.image}', '${o.attributes[1].value}', '${o.attributes[2].value}', '${o.attributes[3].value}', '${o.attributes[4].value}', '${o.attributes[5].value}', '${o.attributes[6].value}', '${o.attributes[7].value}',  '${o.attributes[8].value}',  '${o.attributes[9].value}',  '${o.attributes[10].value}')" >
 							<img id = "tokenImage" class="nft-thumbnail" src="${o.image}"/>
 						</div>
 						<h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px;">CUTZ</h3>
@@ -2904,7 +2904,7 @@ async function delegateToken() {
 
 async function popupProposal(tokenId) {
 	const Http = new XMLHttpRequest();
-	const url = 'https://api.covalenthq.com/v1/1/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
+	const url = 'https://api.covalenthq.com/v1/137/tokens/0x62cA4c24cE323E80D518Cab36C1fcd7EC2Bee798/nft_metadata/' + tokenId + '/?key=ckey_bfcb7ebfab03410fac530470a04';
 	Http.open("GET", url);
 	Http.send();
 	var covalentMetadata;
@@ -2913,6 +2913,7 @@ async function popupProposal(tokenId) {
 	Http.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {// readyState 4 means request is done
 			covalentMetadata = JSON.parse(Http.responseText);
+			console.log(covalentMetadata.data);
 			ownerAddress = covalentMetadata.data.items[0].nft_data[0].owner_address;
 			document.getElementById('tokenOwner').innerHTML = ownerAddress;
 		}
@@ -3001,7 +3002,7 @@ function Proposal(list_start, list_end) {
 				return `
 				<div id = "addedGalleryItems" class="col-sm-3 col-md-2 col-lg-2">
 					<div class="alt-features-item" style="margin-top: 20px; padding-left: 0px;">
-						<div onclick="popupGallery(${o.edition}, '${o.image}', '${o.attributes[1].value}', '${o.attributes[2].value}', '${o.attributes[3].value}', '${o.attributes[4].value}', '${o.attributes[5].value}', '${o.attributes[6].value}', 'fcl_hr(TEST)', '${o.attributes[7].value}', 'nck_jwl(TEST)', 'acc(TEST)')" >
+						<div onclick="popupGallery(${o.edition}, '${o.image}', '${o.attributes[1].value}', '${o.attributes[2].value}', '${o.attributes[3].value}', '${o.attributes[4].value}', '${o.attributes[5].value}', '${o.attributes[6].value}', '${o.attributes[7].value}',  '${o.attributes[8].value}',  '${o.attributes[9].value}',  '${o.attributes[10].value}')" >
 							<img id = "tokenImage" class="nft-thumbnail" src="${o.image}"/>
 						</div>
 						<h3 class="alt-features-title font-alt white_tint" style="margin-bottom: 0px;">CUTZ</h3>
