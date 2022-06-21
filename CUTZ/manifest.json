@@ -1,13 +1,13 @@
 {
-  "name": "Pr0tag0nists",
-  "short_name": "Pr0t",
+  "name": "CUTZ",
+  "short_name": "CUTZ",
   "lang": "en-US",
   "start_url": "/",
   "display": "browser",
   "theme_color": "#ff7575",
   "icons": [
     {
-      "src": "https://github.com/mastrSensei/mastrSensei.github.io/blob/master/pr0tag0nists/assets/images/banner.jpg",
+      "src": "",
       "type": "image/jpg"
     }
   ]
