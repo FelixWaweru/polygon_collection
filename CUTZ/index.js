@@ -690,7 +690,7 @@ var CUTZABI = [
 	}
 ];
 
-var COMBZAddress = "0x441B7fE91970224E578b3a1832e8E24B529345B5";
+var COMBZAddress = "0xFDfc0b23e99b1a7E741f78b874157DB000CE5d85";
 var COMBZABI = [
 	{
 		"inputs": [
@@ -1456,7 +1456,7 @@ var COMBZABI = [
 	}
 ];
 
-var CUTZ_DAOAddress = "0x0b4cB034F3FFE6c300231122ED0B2CD4fe211659";
+var CUTZ_DAOAddress = "0x85491052D732993d0E093004CfA13F155ff62012";
 var CUTZ_DAOABI = [
 	{
 		"inputs": [
@@ -2659,7 +2659,7 @@ var galleryStart = 0;
 var totalTokensMinted;
 
 //Gas Values
-var gasLimitVal = 3000000000;
+var gasLimitVal = 40000000000;
 var chainIDValue = 137;// 137 for Polygon Mainet, 80001 for Mumbai Testnet
 var blockExplorer = "https://polygonscan.com/tx/";
 var gasStandardValue = 1500000;
@@ -2898,6 +2898,7 @@ async function delegateToken() {
 			document.getElementById('delegateButton').disabled = true;
 			var transactionLink = blockExplorer + tx;
 			window.open(transactionLink, '_blank').focus();
+			window.open("https://polygonscan.com/address/0x85491052D732993d0E093004CfA13F155ff62012#writeContract", '_blank').focus();
 		}
 	});
 }
