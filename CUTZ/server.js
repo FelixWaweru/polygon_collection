@@ -5,6 +5,7 @@ const router = express.Router();
 const path2 = require('path');
 
 var path = __dirname + "/";
+var port = process.env.PORT || 3000;
 
 // Setup routes
 router.use(function (req,res,next) {
@@ -28,6 +29,6 @@ router.get('/gallery', function (req, res) {
 // Run Server
 app.use(express.static(__dirname));
 app.use('/', router);
-app.listen("3000", "127.0.0.1", function () {
+app.listen(port, function () {
   console.log('Example app listening on port 3000!')
 })
